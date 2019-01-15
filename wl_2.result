@@ -1,0 +1,12 @@
+Chain Name: One
+Chain Number: 1
+Chain Lambda: 0
+Chain Temperature: 1.0
+Chain Theta: 0.282904
+Chain Probability Density: 0.500000
+Chain Swap Count: 0
+
+Posterior Mean: 0.509397
+Posterior 95% credibility interval: (0.023019,0.977135)
+Estimated probability of peak one: 0.382991
+Estimated probability of peak two: 0.095053
