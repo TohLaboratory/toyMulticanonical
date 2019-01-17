@@ -1,2 +1,2 @@
-# toyMC3
-A toy example of Metropolis-coupled Markov chain Monte Carlo (MC3)
+# toyMulticanonical
+A toy example of Markov chain Monte Carlo with Multicanonical method.
