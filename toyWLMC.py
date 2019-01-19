@@ -95,17 +95,17 @@ class chain(object):
 		"""
 		A function to report a chain's current status.
 		"""
-		print ""
-		print "Chain Name: %s" % self.name
-	 	print "Chain Number: %s" % self.num
-		print "Chain Lambda: %s" % self.lam
-		print "Chain Temperature: %s" % self.temp
-		print "Chain Theta: %f" % self.theta
-		print "Chain Probability Density: %f" % self.thetaPost
-		print "Chain Swap Count: %d" % self.swapCount
+		print("")
+		print("Chain Name: %s" % self.name)
+		print("Chain Number: %s" % self.num)
+		print ("Chain Lambda: %s" % self.lam)
+		print ("Chain Temperature: %s" % self.temp)
+		print ("Chain Theta: %f" % self.theta)
+		print ("Chain Probability Density: %f" % self.thetaPost)
+		print ("Chain Swap Count: %d" % self.swapCount)
 		if (debug):		# Turn on debugging statements, if needed
-			print "Chain %s Temp Test: %f" % (self.name,math.pow(0.9,(1.0/self.temp)))
-		print ""
+			print ("Chain %s Temp Test: %f" % (self.name,math.pow(0.9,(1.0/self.temp))))
+		print ("")
 
 	def update(self):
 		"""
@@ -121,10 +121,10 @@ class chain(object):
 			if (self.ranUnifDraw <= self.r):
 				self.theta = self.thetaProp
 		else:
-			print "Problem calculating proposal ratio for chain %s!" % self.name
+			print ("Problem calculating proposal ratio for chain %s!" % self.name)
 			print (self.thetaProp,self.thetaPropPost)
 			print (self.theta,self.thetaPost)
-			print ""
+			print ("")
 		self.thetaProp = drawTheta(self.theta) # Finish by drawing new proposed value of theta
 		self.thetaPropPost = posterior(self.thetaProp)	# Calculating densities for current and proposed thetas, in case
 		self.thetaPost = posterior(self.theta)
@@ -145,10 +145,10 @@ class chain(object):
 		elif (1 > acceptance_ratio): # If proposed value has posterior density < curr value
 			pass
 		else:
-			print "Problem calculating proposal ratio for chain %s!" % self.name
+			print ("Problem calculating proposal ratio for chain %s!" % self.name)
 			print (self.thetaProp,self.thetaPropPost)
 			print (self.theta,self.thetaPost)
-			print ""
+			print ("")
 		self.thetaProp = drawTheta(self.theta) # Finish by drawing new proposed value of theta
 		self.thetaPropPost = posterior(self.thetaProp)	# Calculating densities for current and proposed thetas, in case
 		self.thetaPost = posterior(self.theta)
@@ -179,10 +179,10 @@ class chain(object):
 		elif (1 > acceptance_ratio): # If proposed value has posterior density < curr value
 			pass
 		else:
-			print "Problem calculating proposal ratio for chain %s!" % self.name
+			print ("Problem calculating proposal ratio for chain %s!" % self.name)
 			print (self.thetaProp,self.thetaPropPost)
 			print (self.theta,self.thetaPost)
-			print ""
+			print ("")
 		index = self.get_index(self.theta)
 		self.weight_distribution[index] = self.weight_distribution[index] + self.f
 		self.histogram[index] = self.histogram[index] + 1
@@ -215,8 +215,8 @@ updateFreq = ngens*0.1		# Frequency of screen updates to make sure chain is runn
 samples = []				# Vector to hold sampled values from cold chain
 
 # Initiate chains
-print ""
-print "Starting chain information: "
+print ("")
+print ("Starting chain information: ")
 chainLambda = 0
 chain 		= chain(lam=chainLambda,num=1,name="One",theta=uniform.rvs(loc=0,scale=1))	# Cold chain
 
@@ -235,7 +235,7 @@ for gen in range(ngens):
 	if (gen % sampleFreq == 0):				# Appending latest sample from cold chain
 		samples.append(chain.theta)
 	if (gen % updateFreq == 0):				# Reporting update to screen
-		print "Generation %s" % gen
+		print ("Generation %s" % gen)
 
 # Report chain states at end of run
 chain.reportState()
